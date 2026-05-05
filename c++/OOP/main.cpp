@@ -80,6 +80,38 @@ public://access modifiers
 };
 
 
+
+class Student {
+  
+public:
+  string name;
+  //double cgpa;
+  double* cgpaPtr;
+  
+  Student(string n, double c){
+    this->name = n;
+    //this->cgpa=c;
+    //deep copy
+    cgpaPtr = new double; //we are assigning the pointer towards a dynamic heap memory, a double type heap memory
+    *cgpaPtr=c;
+  }
+  
+  Student(Student &obj){
+    this->name = obj.name;
+    //this->cgpaPtr=obj.cgpaPtr;
+    cgpaPtr=new double;
+    *cgpaPtr=*obj.cgpaPtr;
+  }
+  
+  void getInfo(){
+    cout << "Studen Name: " << name << " and CGPA: " << *cgpaPtr << endl;
+  }
+  
+};
+
+
+
+
 int main() 
 {
     cout << "Hello, World!" <<endl;
@@ -104,6 +136,15 @@ int main()
     
     Teacher t4(t2); //custom copy constructor
     t4.getInfo();
+    
+    
+    Student s1("Abrar", 3.9);
+    s1.getInfo();
+    
+    Student s2(s1);
+    *(s2.cgpaPtr)=3.96;
+    s2.getInfo();
+    s1.getInfo(); //deep copy
     
     
     return 0;
