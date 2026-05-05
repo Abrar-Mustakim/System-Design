@@ -2,6 +2,10 @@
 using namespace std;
 
 
+//in c++, we use "new" for dynamic memory allocations, and "delete" for freeing/deallocate the memory.
+//delete the memory that the pointers just pointing
+
+
 class Teacher { 
   
 private:
@@ -103,9 +107,18 @@ public:
     *cgpaPtr=*obj.cgpaPtr;
   }
   
+  
+  //destructor
+  ~Student(){
+    //it calls automatically like constructor, we do not need to call it
+    cout << "Hi, I delete everything" << endl;
+    delete cgpaPtr; //extra steps to clean the cgpaptr memory
+  }
+  
   void getInfo(){
     cout << "Studen Name: " << name << " and CGPA: " << *cgpaPtr << endl;
   }
+  
   
 };
 
