@@ -3,6 +3,7 @@ using namespace std;
 class Person {
 public:
   string name;
+  int age;
 };
 
 //hierarchial inheritance
@@ -24,8 +25,9 @@ public:
 int main(){
   TA t1;
   t1.name="Tony";
+  t1.age=23;
   t1.subject="CSE";
   t1.researchArea="AI";
-  cout << t1.name << " " << t1.subject << " " << t1.researchArea;
+  cout << t1.name << " " << t1.subject << " " << t1.researchArea << " " << t1.age;
   return 0;
 }
