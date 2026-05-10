@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//friend function
+//friend class
 
 void fun(){
     //int x=0;
